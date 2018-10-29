@@ -48,7 +48,7 @@
 
   <%= yield %>
 
-  <%= javascript_pack_tag 'application' %>
+  <%= javascript_include_tag 'application' %>
 
   <%- if Rails.env.development? || Rails.env.test? -%>
     <%= javascript_tag do %>
