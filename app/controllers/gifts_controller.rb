@@ -1,4 +1,9 @@
-class RegistrationsController < Devise::RegistrationsController
+class GiftsController < ApplicationController
+  def index
+    @gifts = Gift.all
+
+  end
+
   private
 
   def sign_up_params
