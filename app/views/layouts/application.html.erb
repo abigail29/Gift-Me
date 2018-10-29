@@ -20,33 +20,25 @@
 
     <section class="top-bar-section">
       <ul class="right">
-        <% if user_signed_in? %>
-        <li>
-          <div class="user_email">
-            <%= current_user.email %>
-          </div>
-        </li>
-        <li> <img src="<%= current_user.profile_photo %>" height="67" width="67"></li>
-        <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-        <% if current_user.admin? %>
-        <li><%= link_to "Admin Section", admin_path %></li>
-        <% end %>
-        <% else %>
+
+        <%- if current_user -%>
+        <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+      <%- else -%>
         <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-        <li><%= link_to "Sign In", new_user_session_path %></li>
-        <% end %>
-      </ul>
-    </section>
-  </nav>
-</div>
+        <li><%= link_to 'Sign In', new_user_session_path %></li>
+      <%- end -%>
+    </ul>
+  </section>
+</nav>
 
 <%- flash.each do |key, value| -%>
-<div class="flash flash-<%= key %>">
-  <%= value %>
-</div>
+  <div class="flash flash-<%= key %>">
+    <%= value %>
+  </div>
 <%- end -%>
 
-  <%= yield %>
+<%= yield %>
+
 
   <%= javascript_include_tag 'application' %>
 
