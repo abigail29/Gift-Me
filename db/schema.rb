@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 2018_10_29_173805) do
     t.string "first_name", null: false
     t.string "last_name", null: false
     t.string "username", null: false
-    t.date "birthday", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["username"], name: "index_gifts_on_username", unique: true

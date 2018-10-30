@@ -4,8 +4,7 @@ class CreateGifts < ActiveRecord::Migration[5.2]
       t.string :first_name, null: false
       t.string :last_name, null: false
       t.string :username, null: false, index: {unique: true}
-      t.date :birthday, null: false
-
+      
       t.timestamps null: false
     end
   end

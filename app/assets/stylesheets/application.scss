@@ -30,9 +30,23 @@
  }
 
  body{
-   background-color: white;
+   background-image: url(https://t3.ftcdn.net/jpg/00/97/15/82/500_F_97158220_6AKeiMTsC5hBaAYRSqq8saOu1Tkm27hz.jpg);
+     background-repeat: no-repeat;
+       -webkit-background-size: cover;
+       -moz-background-size: cover;
+       -o-background-size: cover;
+     background-size: cover;
+     background-attachment: fixed;
  }
 
- h1{
-   
+ #sign-up{
+   margin-bottom: 3%;
+ }
+
+ #intro {
+  background-color: white;
+  border: 5px solid;
+  text-align: center;
+
+
  }
