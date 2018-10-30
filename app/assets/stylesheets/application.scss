@@ -1,17 +1,52 @@
 /*
-* This is a manifest file that'll be compiled into application.css, which will include all the files
-* listed below.
-*
-* Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
-* vendor/assets/stylesheets directory can be referenced here using a relative path.
-*
-* You're free to add application-wide styles to this file and they'll appear at the bottom of the
-* compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
-* files in this directory. Styles in this file should be added after the last require_* statement.
-* It is generally better to create a new file per style scope.
-*
-*= require_tree .
-*= require_self
-*= require foundation_and_overrides
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require foundation_and_overrides
 
-*/
+ */
+
+
+ .footer{
+   position: fixed;
+   bottom: 0;
+   width: 100%;
+   background-color: cadetblue;
+   height: 5%;
+   padding: .5%;
+   margin: 0%;
+   font-size: 1em;
+   text-align: center;
+ }
+
+ body{
+   background-image: url(https://t3.ftcdn.net/jpg/00/97/15/82/500_F_97158220_6AKeiMTsC5hBaAYRSqq8saOu1Tkm27hz.jpg);
+     background-repeat: no-repeat;
+       -webkit-background-size: cover;
+       -moz-background-size: cover;
+       -o-background-size: cover;
+     background-size: cover;
+     background-attachment: fixed;
+ }
+
+ #sign-up{
+   margin-bottom: 3%;
+ }
+
+ #intro {
+  background-color: white;
+  border: 5px solid;
+  text-align: center;
+
+
+ }

@@ -17,11 +17,6 @@
   </div>
 
   <div class="field">
-    <%= f.label :birthday %><br />
-    <%= text_field :birthday, autocomplete: "Birthday 00/00/0000" %>
-  </div>
-
-  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
@@ -39,7 +34,11 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
-  <div class="actions">
+  <div class="field">
+    <%= f.file_field :profile_photo %>
+  </div>
+
+  <div class="actions" id="sign-up">
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
