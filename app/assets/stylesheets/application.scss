@@ -16,12 +16,31 @@
 
  */
 
+ .field, .actions {
+   margin-bottom: 1%;
+   margin-top: 1%;
+   color: white;
+
+ }
+
+#welcome{
+  color:black;
+}
+
+.top-bar, .top-bar ul{
+  background-color: #954E5D;
+
+}
+
+.foot-link {
+  color: black;
+}
 
  .footer{
    position: fixed;
    bottom: 0;
    width: 100%;
-   background-color: cadetblue;
+   background-color: #954E5D;
    height: 5%;
    padding: .5%;
    margin: 0%;
@@ -30,7 +49,7 @@
  }
 
  body{
-   background-image: url(https://t3.ftcdn.net/jpg/00/97/15/82/500_F_97158220_6AKeiMTsC5hBaAYRSqq8saOu1Tkm27hz.jpg);
+   background-image: url(https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/11/23/21/istock-497443324.jpg?w968);
      background-repeat: no-repeat;
        -webkit-background-size: cover;
        -moz-background-size: cover;
@@ -39,14 +58,35 @@
      background-attachment: fixed;
  }
 
- #sign-up{
+ .sign-up{
    margin-bottom: 3%;
+   background-color: #954E5D;
+
  }
 
  #intro {
-  background-color: white;
-  border: 5px solid;
+  background-color: #C5B9BD;
+  border: 2px solid;
   text-align: center;
+  border-radius: 20px;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  width: 31%;
+  margin-left: 10%;
+  margin-right: 5%;
+ }
 
+ #overview{
+   background-color: #C5B9BD;
+   border: 2px solid;
+   text-align: center;
+   border-radius: 20px;
+   width: 50%;
+   float: right;
+   font-size: 5em;
 
+ }
+
+ #name{
+   margin: 10%;
  }

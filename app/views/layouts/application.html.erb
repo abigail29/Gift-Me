@@ -8,27 +8,28 @@
     <%= javascript_include_tag "vendor/modernizr" %>
 
   <%= csrf_meta_tags %>
+  <!-- <link rel="stylesheet" href="datepicker.css"> -->
 </head>
 <body>
 
   <nav class="top-bar">
     <ul class="title-area">
       <li class="name">
-        <h1><a href="/">Gift Me</a></h1>
+        <h1 class="welcome"><a href="/">Gift Me</a></h1>
       </li>
     </ul>
-
+    <!-- <script src="datepicker.min.js"></script> -->
     <section class="top-bar-section">
       <ul class="right">
 
         <%- if current_user -%>
-        <li><%= link_to "#{current_user.email}", destroy_user_session_path, method: :delete %></li>
-        <li> <img src=<%= current_user.profile_photo.url %> height="67" width="67"></li>
-        <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-      <%- else -%>
-        <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-        <li><%= link_to 'Sign In', new_user_session_path %></li>
-      <%- end -%>
+          <li><a href="/users/<%=current_user.id%>">Profile</a></li>
+          <li> <img src=<%= current_user.profile_photo.url %> height="67" width="67"></li>
+          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+        <%- else -%>
+          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+          <li><%= link_to 'Sign In', new_user_session_path %></li>
+        <%- end -%>
     </ul>
   </section>
 </nav>
@@ -53,7 +54,7 @@
 
   <%= yield :extra_footer %>
   <footer>
-    <h1 class="footer"><%=link_to "About Us", "https://www.google.com"  %>  &nbsp;&nbsp;|&nbsp;&nbsp;   <%=link_to  "Contact Us", "https://www.google.com" %>  &nbsp;&nbsp;|&nbsp;&nbsp;  <%=link_to "Invest", "https://venmo.com/"  %> </h1>
+    <h1 class="footer" ><%=link_to "About Us", "https://www.google.com", {:class => "foot-link"}  %>  &nbsp;&nbsp;|&nbsp;&nbsp;   <%=link_to  "Contact Us", "https://www.google.com", {:class => "foot-link"} %>  &nbsp;&nbsp;|&nbsp;&nbsp;  <%=link_to "Invest", "https://venmo.com/", {:class => "foot-link"}  %> &nbsp;&nbsp;|&nbsp;&nbsp;  <%=link_to "Sign Up", new_user_registration_path, {:class => "foot-link"} %> &nbsp;&nbsp;|&nbsp;&nbsp;  <%=link_to "Sign In", new_user_session_path, {:class => "foot-link"} %> </h1>
   </footer>
 </body>
 </html>

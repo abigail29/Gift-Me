@@ -1,4 +1,10 @@
 import React, { Component } from 'react';
+import UserComponent from '../components/UserComponent';
+import BirthdayField from '../components/BirthdayField';
+import NameField from '../components/NameField';
+import InterestField from '../components/InterestField';
+
+import Calendar from 'react-calendar';
 
 class FormContainer extends Component {
   constructor(props) {
@@ -19,7 +25,7 @@ class FormContainer extends Component {
     handleClearForm(){
       this.setState({
         name: '',
-        birthday: '00/00/000',
+        birthday: '00/00/0000',
         interest: ''
       })
     }
@@ -56,7 +62,6 @@ class FormContainer extends Component {
           <BirthdayField
             handleBirthdayChange={this.handleBirthdayChange}
             content={this.state.birthday}
-          />
           />
           <InterestField
             handleInterestChange={this.handleInterestChange}
