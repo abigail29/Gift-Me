@@ -10,21 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_30_202029) do
+ActiveRecord::Schema.define(version: 2018_10_31_192827) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "gifts", force: :cascade do |t|
     t.string "name", null: false
-    t.string "date", null: false
-    t.string "description"
-    t.bigint "person_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "price", null: false
+    t.bigint "person_id"
     t.index ["person_id"], name: "index_gifts_on_person_id"
-    t.index ["user_id"], name: "index_gifts_on_user_id"
   end
 
   create_table "holidays", force: :cascade do |t|
@@ -32,20 +27,28 @@ ActiveRecord::Schema.define(version: 2018_10_30_202029) do
     t.string "valentines", null: false
     t.string "easter", null: false
     t.string "new_years", null: false
-    t.string "Hanukkah", null: false
+    t.string "hanukkah", null: false
     t.string "mothers_day", null: false
     t.string "fathers_day", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "peoples", force: :cascade do |t|
-    t.string "firstName", null: false
-    t.string "lastName", null: false
+  create_table "lovedones", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "person_id", null: false
+    t.index ["person_id"], name: "index_lovedones_on_person_id"
+    t.index ["user_id"], name: "index_lovedones_on_user_id"
+  end
+
+  create_table "people", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "birthday", null: false
+    t.string "description"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_peoples_on_user_id"
+    t.index ["user_id"], name: "index_people_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

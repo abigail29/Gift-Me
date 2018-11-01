@@ -6,5 +6,6 @@ class UsersController < ApplicationController
   end
 
   def show
+    render "homes/index"
   end
 end

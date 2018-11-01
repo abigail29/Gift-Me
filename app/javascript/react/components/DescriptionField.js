@@ -1,12 +1,12 @@
 import React from 'react'
 
-const InterestField = props => {
+const DescriptionField = props => {
   return(
     <label>
-      Interests:
+      Description:
       <input
         type="text"
-        onChange={props.handleInterestChange}
+        onChange={props.handleDescriptionChange}
         value={props.content}
         />
     </label>
@@ -14,4 +14,4 @@ const InterestField = props => {
 
 }
 
-export default InterestField;
+export default DescriptionField;

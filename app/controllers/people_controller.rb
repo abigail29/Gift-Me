@@ -1,4 +1,4 @@
-class PeoplesController < ApplicationController
+class PeopleController < ApplicationController
   def index
     @peoples = People.all
   end
@@ -8,7 +8,7 @@ class PeoplesController < ApplicationController
   end
 
   def new
-    @people = People.new
+    render "homes/index"
   end
 
   def create
@@ -25,7 +25,7 @@ class PeoplesController < ApplicationController
   private
 
   def people_params
-    params.require(:people).permit(:name, :birthday, :interest)
-  end 
+    params.require(:people).permit(:name, :birthday, :description)
+  end
 
 end
