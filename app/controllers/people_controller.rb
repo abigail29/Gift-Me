@@ -4,7 +4,7 @@ class PeopleController < ApplicationController
   end
 
   def show
-    @people = People.find(params[:id])
+    @people = Person.find(params[:id])
   end
 
   def new

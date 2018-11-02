@@ -3,20 +3,19 @@ import { Link } from 'react-router';
 
 const PersonComponent = (props) => {
   return (
-    <div>
-    <div className="third">
-      <div className="first">
-        <p>Name: {props.name}</p>
-        <p>Birthday: {props.birthday}</p>
-        <p>Description: {props.description}</p>
-      </div>
-      <div className="second">
-        <Link to={`/users/${props.id}/people/new`}>Add a New Loved One</Link>
-      </div>
-      </div>
+    <div className="columns small-6 first">
+      <p><Link to={`/people/${props.id}`} className="link">Name: {props.name}</Link></p>
+      <p>Birthday: {props.birthday}</p>
+      <p>Description: {props.description}</p>
     </div>
 
   )
 }
 
 export default PersonComponent;
+
+
+
+// name as a link to - pass down props.id
+// react router thats dynamic '/person/:id' - top level compoennt - in react router part '/person/props.id'
+//set it in rails routes too

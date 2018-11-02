@@ -10,14 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_31_192827) do
+ActiveRecord::Schema.define(version: 2018_11_01_211459) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "gifts", force: :cascade do |t|
-    t.string "name", null: false
+  create_table "giftings", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "person_id", null: false
+    t.bigint "gift_id", null: false
     t.string "price", null: false
+    t.string "reason", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["gift_id"], name: "index_giftings_on_gift_id"
+    t.index ["person_id"], name: "index_giftings_on_person_id"
+    t.index ["user_id"], name: "index_giftings_on_user_id"
+  end
+
+  create_table "gifts", force: :cascade do |t|
+    t.string "gift", null: false
+    t.string "price", null: false
+    t.string "reason", null: false
     t.bigint "person_id"
     t.index ["person_id"], name: "index_gifts_on_person_id"
   end

@@ -26,20 +26,6 @@ class PersonContainer extends Component {
         .then(response => response.json())
         .then(body => {
           this.setState({ current_user: body, people: body.people });
-          // fetch('/api/v1/people')
-          //     .then(response => {
-          //       if (response.ok) {
-          //         return response;
-          //       } else {
-          //         let errorMessage = `${response.status} (${response.statusText})`,
-          //             error = new Error(errorMessage);
-          //         throw(error);
-          //       }
-          //     })
-          //     .then(response => response.json())
-          //     .then(body => {
-          //       this.setState({ people: body });
-          //     })
           }
         )
       }
@@ -49,7 +35,6 @@ class PersonContainer extends Component {
 
 let person = this.state.people.map(present => {
   return(
-    <div>
       <PersonComponent
       key= {present.id}
       id= {present.id}
@@ -57,13 +42,15 @@ let person = this.state.people.map(present => {
       birthday= {present.birthday}
       description= {present.description}
       />
-    </div>
   )
 })
 
     return(
-      <div>
+      <div className = "rows">
       {person}
+      <div className="second">
+        <Link to={`/users/this.props.params/people/new`} className="link">Add a New Loved One</Link>
+      </div>
       </div>
 
     )
@@ -72,11 +59,3 @@ let person = this.state.people.map(present => {
 
 
 export default PersonContainer;
-// let people = this.state.people.map(person => {
-//   <PersonComponent
-//     id={person.id}
-//     name={person.name}
-//     birthday={person.birthday}
-//     description={person.description}
-//   />
-// })

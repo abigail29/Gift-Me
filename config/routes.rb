@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resources :gifts
 
+  resources :people
+
   resources :users do
     resources :gifts
     resources :people, only: [:index, :show, :new]
@@ -12,7 +14,10 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :current_user
-      resources :people 
+      resources :users
+      resources :people
+      resources :gifts
+      resources :giftings
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

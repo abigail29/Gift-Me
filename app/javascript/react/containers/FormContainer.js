@@ -5,9 +5,6 @@ import NameField from '../components/NameField';
 import DescriptionField from '../components/DescriptionField';
 import { browserHistory } from 'react-router';
 
-
-import Calendar from 'react-calendar';
-
 class FormContainer extends Component {
   constructor(props) {
     super(props);
@@ -64,15 +61,7 @@ class FormContainer extends Component {
         })
         .then(response => response.json())
         .then(body => {
-          // browserHistory.push('/users/user_id')
-          // browserHistory.push('/users/:user_id')
           browserHistory.push('/users/:id')
-
-          //   this.setState({
-          //     names: this.state.names.concat(body.name),
-          //     birthdays: this.state.birthdays.concat(body.birthday),
-          //     descriptions: this.state.descriptions.concat(body.description)
-          //   })
           })
         .catch(error => console.error('Error:', error));
       }
