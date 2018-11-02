@@ -1,11 +1,12 @@
 import React from 'react'
+//THIS IS FOR REASON - BUT MADE IT A CALENDAR
 
 const ReasonField = props => {
   return(
     <label>
-      Reason:
+      Reason/Date:
       <input
-        type="text"
+        type="date"
         onChange={props.handleReasonChange}
         value={props.content}
          />

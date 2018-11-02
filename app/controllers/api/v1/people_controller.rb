@@ -3,6 +3,7 @@ class Api::V1::PeopleController < ApplicationController
   protect_from_forgery unless: -> {request.format.json?}
 
   def index
+
     @people = Person.all
     render json: @people
   end

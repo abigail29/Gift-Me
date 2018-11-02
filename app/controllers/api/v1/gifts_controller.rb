@@ -3,22 +3,32 @@ class Api::V1::GiftsController < ApplicationController
   protect_from_forgery unless: -> {request.format.json?}
 
   def index
-    @gifts = Gift.all
+    # binding.pry
+    # person_id = params[:person_id]
+    # @person = Person.find(person_id)
+    # @gifts = @person.gifts
+
     render json: @gifts
   end
 
   def show
-    render json: @gift
+    # binding.pry
+    person_id = params[:id]
+    @person = Person.find(person_id)
+    @gifts = @person.gifts
+    # binding.pry
+    render json: @gifts
     # render json: Gifts.find(params[:id])
   end
 
   def create
+    # binding.pry
     @gift = Gift.new(gift_params)
-    @person = Person.find(gift_params["person_id"])
-    @gift.person = @person
-    @gift.user = current_user
-    @person.gifts << @gift
-
+    # @person = Person.find(gift_params["person_id"])
+    # @gift.person = @person
+    # @gift.user = current_user
+    # @person.gifts << @gift
+    # binding.pry
     if @gift.save
       render json: @gift
     else
@@ -29,7 +39,7 @@ class Api::V1::GiftsController < ApplicationController
   private
 
   def gift_params
-    params.require(:gift).permit(:gift, :price, :reason, :person_id)
+    params.permit(:gift, :price, :reason, :person_id)
   end
 
 end

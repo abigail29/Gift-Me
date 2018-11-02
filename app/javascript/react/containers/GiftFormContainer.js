@@ -27,7 +27,7 @@ class GiftFormContainer extends Component {
   }
 
   componentDidMount() {
-    fetch('/api/v1/gifts')
+    fetch(`/api/v1/gifts/${this.props.params.id}`)
     .then(response => {
       if (response.ok) {
         return response;
@@ -65,7 +65,7 @@ class GiftFormContainer extends Component {
   }
 
   addGiftSubmission(payload) {
-      fetch(`/api/v1/giftings`, {
+      fetch(`/api/v1/gifts`, {
         credentials: 'same-origin',
         method: 'POST',
         body: JSON.stringify(payload),
@@ -85,15 +85,15 @@ class GiftFormContainer extends Component {
       })
       .then(response => response.json())
       .then(body => {
-
+        this.setState({
+          gifts: this.state.gifts.concat(body)
         })
+      })
       .catch(error => console.error('Error:', error));
     }
 
     handleSubmitForm(event){
-      this.setState({ gift: event.target[0].value,
-                      price: event.target[1].value,
-                      reason: event.target[2].value})
+      event.preventDefault()
       let payload = {
         gift: this.state.gift,
         price: this.state.price,
@@ -107,20 +107,22 @@ class GiftFormContainer extends Component {
   render() {
     return(
       <div>
-        <GiftContainer />
-
+        <GiftContainer
+          gifts={this.state.gifts}
+        />
         <form onSubmit={this.handleSubmitForm}>
           <h3 className="wrapped">Add a Gift</h3>
           <GiftField
-            gifts={this.state.gifts}
             handleGiftChange={this.handleGiftChange}
             content={this.state.gift}
           />
           <PriceField
+            prices={this.state.prices}
             handlePriceChange={this.handlePriceChange}
             content={this.state.price}
           />
           <ReasonField
+            reasons={this.state.reasons}
             handleReasonChange={this.handleReasonChange}
             content={this.state.reason}
           />
