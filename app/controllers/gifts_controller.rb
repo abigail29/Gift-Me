@@ -6,14 +6,20 @@ class GiftsController < ApplicationController
   def show
     @gift = Gift.find(params[:id])
   end
+  def create
+    @gifts = Gift.new(gift_params)
+
+    if @gift.save
+      render json: @gift
+    else
+      render json: @gift.errors.full_messages.join(" . ")
+    end
+  end
 
   private
 
-  def sign_up_params
-    params.require(:user).permit(:first_name, :last_name, :username, :birthday, :email, :password, :password_confirmation)
+  def gift_params
+    params.require(:gift).permit(:gift, :price, :reason)
   end
 
-  def account_update_params
-    params.require(:user).permit(:first_name, :last_name, :username, :birthday, :email, :password, :password_confirmation)
-  end
 end

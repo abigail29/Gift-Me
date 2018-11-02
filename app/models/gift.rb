@@ -1,8 +1,9 @@
 class Gift < ApplicationRecord
 
-  validates :first_name, presence: true
-  validates :last_name, presence: true
-  validates :birthday, presence: true
-  validates :username, presence: true
+  validates :gift, presence: true
+  validates :price, presence: true
+  validates :reason, presence: true
 
+  belongs_to :person
+  has_many :giftings
 end

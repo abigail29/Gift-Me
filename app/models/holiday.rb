@@ -6,6 +6,6 @@ class Holiday < ApplicationRecord
   validates :mothers_day, presence: true
   validates :fathers_day, presence: true
   validates :easter, presence: true
-  validates :Hanukkah, presence: true
+  validates :hanukkah, presence: true
 
 end
