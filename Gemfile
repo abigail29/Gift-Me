@@ -62,3 +62,4 @@ gem 'webpacker', '~> 3.3'
 gem "carrierwave"
 gem 'active_model_serializers'
 gem "simple_calendar", "~> 2.0"
+gem 'etsy', '~> 0.3.1'

@@ -5,5 +5,5 @@ class Gift < ApplicationRecord
   validates :reason, presence: true
 
   belongs_to :person
-  has_many :giftings
+  # has_many :giftings
 end
