@@ -1,25 +1,27 @@
 class Api::V1::GiftsController < ApplicationController
 
-  protect_from_forgery unless: -> {request.format.json?}
+  # protect_from_forgery unless: -> {request.format.json?}
+
+
+  # render json: Gifts.find(params[:id])
+    def show
+      # person_id = params[:id]
+      @person = Person.find(params[:id])
+      @gifts = @person.gifts
+      render json: @gifts
+
+    end
 
   def index
     # binding.pry
     # person_id = params[:person_id]
     # @person = Person.find(person_id)
-    # @gifts = @person.gifts
+    @gifts = Gift.all
 
     render json: @gifts
   end
 
-  def show
-    # binding.pry
-    person_id = params[:id]
-    @person = Person.find(person_id)
-    @gifts = @person.gifts
-    # binding.pry
-    render json: @gifts
-    # render json: Gifts.find(params[:id])
-  end
+
 
   def create
     # binding.pry
@@ -34,6 +36,12 @@ class Api::V1::GiftsController < ApplicationController
     else
       render json: @gift.errors.full_messages.join(" . ")
     end
+  end
+
+  def destroy
+    @gift = Gift.find(params[:id])
+    @gift.destroy
+    render json: { message: "Review deleted successfully" }
   end
 
   private

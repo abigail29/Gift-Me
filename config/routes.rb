@@ -16,7 +16,7 @@ Rails.application.routes.draw do
       resources :current_user
       resources :users
       resources :people
-      resources :gifts
+      resources :gifts 
       # resources :giftings
     end
   end
