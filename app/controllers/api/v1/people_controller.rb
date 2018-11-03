@@ -23,6 +23,10 @@ class Api::V1::PeopleController < ApplicationController
     end
   end
 
+  def delete
+    binding.pry
+  end
+
   private
 
   def person_params
