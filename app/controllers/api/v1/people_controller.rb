@@ -24,7 +24,6 @@ class Api::V1::PeopleController < ApplicationController
   end
 
   def delete
-    binding.pry
   end
 
   private

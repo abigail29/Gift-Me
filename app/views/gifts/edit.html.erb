@@ -1,0 +1,19 @@
+<h1 class="field">Edit a Gift!</h1>
+  <%= form_for @gift do |f| %>
+    <div class="field">
+     <%= f.label :gift, "Edit your gift!", class: 'edit-gift' %>
+     <%= f.text_field :gift %>
+    </div>
+    <div class="field">
+     <%= f.label :price, class: 'edit-gift' %>
+     <%= f.text_field :price %>
+    </div>
+    <div class="field">
+     <%= f.label :reason, class: 'edit-gift' %>
+     <%= f.text_field :reason %>
+    </div>
+
+    <div class='action'>
+     <%= f.submit'Edit Gift' %>
+    </div>
+  <% end %>
