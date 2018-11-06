@@ -7,6 +7,10 @@ class PeopleController < ApplicationController
     @people = Person.find(params[:id])
   end
 
+  def edit
+    @person = Person.find(params[:id])
+  end
+
   def new
     render "homes/index"
   end

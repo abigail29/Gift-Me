@@ -5,10 +5,13 @@ import PersonComponent from './PersonComponent'
 
 const GiftComponent = (props) => {
 
+
+  let editButton
+    editButton = <a href={`/gifts/${props.id}/edit`}>Edit</a>
+
   let deleteButton
-  if (props.userId === props.giftUserId) {
     deleteButton = <button onClick={props.deleteHandler}>Delete</button>
-  }
+
 
     return (
     <div className="fifth">
@@ -16,6 +19,8 @@ const GiftComponent = (props) => {
       <p>Price: {props.price}</p>
       <p>Reason: {props.reason}</p>
       {deleteButton}
+      {editButton}
+
     </div>
   )
 }
