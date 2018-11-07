@@ -16,6 +16,27 @@
 
  */
 
+button{
+  color: red;
+  background-color: white;
+  width: 5%;
+  margin-left: 2%;
+  margin-right: 2%;
+  padding-left: .9em;
+}
+button:hover{
+  background-color: red;
+  color: white;
+}
+ .birthday{
+   color: white;
+   margin-left: 30%;
+   margin-right: 30%;
+   float: left;
+
+
+ }
+
  .sign-up{
    margin-bottom: 3%;
    background-color: #954E5D;
@@ -29,15 +50,43 @@
 }
  .sign{
    color: #FFFFFF;
+   padding-top: 5%;
+   padding-bottom: 3%;
+   padding-right: 3%;
+   padding-left: 3%;
+   margin-right: 3px;
+   margin-left: 3px;
+   margin-top: 5px;
+   margin-bottom: 5px;
+   text-align: center;
  }
+
+ #name{
+   color: white;
+ }
+
+ .field{
+   color: white;
+ }
+
+ #person-tile{
+   margin-bottom: 2.5em;
+ }
+
+ .birth{
+   color: white;
+   font-weight: bold;
+ }
+
 
  .link {
   color: red;
+  font-weight: bold;
 }
 
  .first {
    color: #EBDECB;
-   background-color:rgba(255,255,255,0.5);
+   background-color:rgba(103,75,75,0.5);
    border: 5px solid;
    border-radius: 50px;
    padding-left: 2%;
@@ -51,6 +100,10 @@
  }
  .second:visited{
    color: black;
+ }
+
+ label{
+   color: white;
  }
 
  .person{
@@ -72,8 +125,8 @@
  }
 
  .field, .actions {
-   margin-bottom: 1%;
-   margin-top: 1%;
+   // margin-bottom: 1%;
+   // margin-top: 1%;
    color: white;
 
  }
@@ -99,6 +152,7 @@
    // height: 5%;
    padding: .5%;
    margin: 0%;
+   margin-top: 2%;
    font-size: 1em;
    text-align: center;
  }
@@ -137,7 +191,10 @@
  }
 
  #name{
-   margin: 10%;
+   color: white;
+   padding: 10px;
+   margin-left: 450px;
+   margin-right: 450px;
  }
 
 .box{
@@ -151,4 +208,39 @@
 
 .fifth {
   color: white;
+}
+
+.edit{
+  color: red;
+  background-color: white;
+  padding: 1.09em;
+}
+.edit:hover{
+  color: white;
+  background-color: red;
+  padding: 1.09em;
+}
+
+input.button{
+  color: red;
+  background-color: white;
+  width: 5%;
+  margin-left: 2%;
+  margin-right: 2%;
+  padding-left: .9em;
+  padding-right: 4em;
+}
+input.button:hover{
+  color: white;
+  background-color: red;
+  width: 5%;
+  margin-left: 2%;
+  margin-right: 2%;
+  padding-left: .9em;
+  padding-right: 4em;
+}
+
+ label{
+  margin-left: 30%;
+  margin-right: 30%;
 }

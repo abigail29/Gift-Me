@@ -73,7 +73,7 @@ class Api::V1::GiftsController < ApplicationController
   private
 
   def gift_params
-    params.permit(:gift, :price, :reason, :person_id, :user_id, :gift_id)
+    params.permit(:gift, :price, :reason, :person_id, :user_id, :gift_id, :category)
   end
 
 end
