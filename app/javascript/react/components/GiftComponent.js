@@ -7,7 +7,9 @@ const GiftComponent = (props) => {
 
 
   let editButton
-    editButton = <a href={`/gifts/${props.id}/edit`}>Edit</a>
+    editButton = <a className="edit" href={`/gifts/${props.id}/edit`}>Edit</a>
+    // editButton= <button onClick={props.handleEdit}>Edit</button>
+    //function to browserHistory.push
 
   let deleteButton
     deleteButton = <button onClick={props.deleteHandler}>Delete</button>
@@ -18,10 +20,11 @@ const GiftComponent = (props) => {
       <p>Gift: {props.gift}</p>
       <p>Price: {props.price}</p>
       <p>Reason: {props.reason}</p>
+      <p>Category:{props.category}</p>
       {deleteButton}
       {editButton}
-
     </div>
+
   )
 }
 

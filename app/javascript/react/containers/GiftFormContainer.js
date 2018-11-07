@@ -6,7 +6,7 @@ import GiftComponent from '../components/GiftComponent';
 import GiftField from '../components/GiftField';
 import PriceField from '../components/PriceField';
 import ReasonField from '../components/ReasonField';
-
+import CategoryField from '../components/CategoryField';
 
 class GiftFormContainer extends Component {
   constructor(props) {
@@ -15,6 +15,7 @@ class GiftFormContainer extends Component {
       gift: '',
       price: '',
       reason: '',
+      category: '',
       person_id: null,
       gifts: [],
       current_user: {}
@@ -27,6 +28,7 @@ class GiftFormContainer extends Component {
     this.addGiftSubmission = this.addGiftSubmission.bind(this)
     this.handleGiftChange = this.handleGiftChange.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
+    this.handleCategoryChange = this.handleCategoryChange.bind(this)
 
   }
 
@@ -81,6 +83,10 @@ class GiftFormContainer extends Component {
   }
   handleReasonChange(event){
     this.setState({ reason: event.target.value })
+  }
+
+  handleCategoryChange(event){
+    this.setState({ category: event.target.value })
   }
 
   addGiftSubmission(payload) {
@@ -141,6 +147,10 @@ class GiftFormContainer extends Component {
         .catch(error => console.error(`Error in fetch: ${error.message}`));
     }
 
+    // handleEdit(event){
+    //   browserHistory.push(`/gifts/${props.id}/edit`)
+    // }
+
 
     handleSubmitForm(event){
       event.preventDefault()
@@ -148,6 +158,7 @@ class GiftFormContainer extends Component {
         gift: this.state.gift,
         price: this.state.price,
         reason: this.state.reason,
+        category: this.state.category,
         person_id: this.props.params.id
       }
       this.addGiftSubmission(payload)
@@ -166,6 +177,7 @@ class GiftFormContainer extends Component {
           reason={gift.reason}
           price={gift.price}
           gift={gift.gift}
+          category={gift.category}
           deleteHandler={deleteHandler}
           current_user={this.state.current_user}
         />
@@ -193,6 +205,11 @@ class GiftFormContainer extends Component {
             reasons={this.state.reasons}
             handleReasonChange={this.handleReasonChange}
             content={this.state.reason}
+          />
+          <CategoryField
+            categories={this.state.categories}
+            handleCategoryChange={this.handleCategoryChange}
+            content={this.state.category}
           />
           <input type="submit" className="button" value="Submit "/>
         </form>

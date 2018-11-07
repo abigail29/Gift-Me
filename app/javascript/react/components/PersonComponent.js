@@ -3,10 +3,10 @@ import { Link } from 'react-router';
 
 const PersonComponent = (props) => {
   return (
-    <div className="columns small-6 first">
+    <div className="columns small-6 first" id="person-tile">
       <p><Link to={`/people/${props.id}`} className="link">Name: {props.name}</Link></p>
-      <p>Birthday: {props.birthday}</p>
-      <p>Description: {props.description}</p>
+      <p className="birth">Birthday: {props.birthday}</p>
+      <p className="birth">Description: {props.description}</p>
     </div>
 
   )

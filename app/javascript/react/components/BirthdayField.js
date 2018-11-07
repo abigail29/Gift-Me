@@ -2,7 +2,7 @@ import React from 'react'
 
 const BirthdayField = props => {
   return(
-    <div>
+    <div className="birthday">
     <label>
       Birthday:
       </label>
