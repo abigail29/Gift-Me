@@ -10,7 +10,7 @@ const GiftField = props => {
 
   return(
     <div>
-      <label> Gift: </label>
+      <label className= "gifts"> Gift: </label>
       <input
         type="text"
         onChange={props.handleGiftChange}
