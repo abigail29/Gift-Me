@@ -8,6 +8,7 @@ import PriceField from '../components/PriceField';
 import ReasonField from '../components/ReasonField';
 import CategoryField from '../components/CategoryField';
 
+
 class GiftFormContainer extends Component {
   constructor(props) {
     super(props);
@@ -15,6 +16,7 @@ class GiftFormContainer extends Component {
       gift: '',
       price: '',
       reason: '',
+      categories: [],
       category: '',
       person_id: null,
       gifts: [],
@@ -49,20 +51,36 @@ class GiftFormContainer extends Component {
           gifts: body
         })
         fetch('/api/v1/current_user')
-            .then(response => {
-              if (response.ok) {
-                return response;
-              } else {
-                let errorMessage = `${response.status} (${response.statusText})`,
-                    error = new Error(errorMessage);
-                throw(error);
-              }
-            })
-            .then(response => response.json())
-            .then(body => {
-              this.setState({ current_user: body});
-              }
-            )
+        .then(response => {
+          if (response.ok) {
+            return response;
+          } else {
+            let errorMessage = `${response.status} (${response.statusText})`,
+                error = new Error(errorMessage);
+            throw(error);
+          }
+        })
+        .then(response => response.json())
+        .then(body => {
+          this.setState({ current_user: body});
+          }
+        )
+      fetch(`/api/v1/categories`)
+      .then(response => {
+        if (response.ok) {
+          return response;
+        } else {
+          let errorMessage = `${response.status} (${response.statusText})`,
+              error = new Error(errorMessage);
+          throw(error);
+        }
+      })
+
+      .then(response => response.json())
+      .then(body => {
+        this.setState({ categories: body });
+        }
+      )
       })
     .catch(error => console.error('Error:', error));
   }
@@ -72,7 +90,7 @@ class GiftFormContainer extends Component {
       gift: '',
       price: '',
       reason: ''
-    })
+        })
   }
 
   handleGiftChange(event){
@@ -84,7 +102,6 @@ class GiftFormContainer extends Component {
   handleReasonChange(event){
     this.setState({ reason: event.target.value })
   }
-
   handleCategoryChange(event){
     this.setState({ category: event.target.value })
   }
@@ -117,7 +134,6 @@ class GiftFormContainer extends Component {
       .catch(error => console.error('Error:', error));
     }
 
-    // Move handleDelete here
   handleDelete(giftId) {
     event.preventDefault()
       fetch(`/api/v1/gifts/${giftId}`, {
@@ -147,11 +163,6 @@ class GiftFormContainer extends Component {
         .catch(error => console.error(`Error in fetch: ${error.message}`));
     }
 
-    // handleEdit(event){
-    //   browserHistory.push(`/gifts/${props.id}/edit`)
-    // }
-
-
     handleSubmitForm(event){
       event.preventDefault()
       let payload = {
@@ -166,6 +177,26 @@ class GiftFormContainer extends Component {
     }
 
   render() {
+    console.log(this.state)
+    let groups;
+    if (this.state.categories != undefined){
+    // groups = this.state.categories.map(category => {
+    //   return (
+    //     <GiftComponent
+    //       name = {category.name}
+    //     />
+    //
+    //   )
+    // })
+    groups = this.state.categories.map(category => {
+      return (
+        <CategoryField
+          name = {category}
+        />
+      )
+    })
+  }
+
     let wrap = this.state.gifts.map(gift => {
     let deleteHandler = () => {
       this.handleDelete(gift.id)
@@ -186,7 +217,6 @@ class GiftFormContainer extends Component {
 
     return(
       <div>
-
         <div className = "wrappers">
           {wrap}
         </div>
@@ -206,11 +236,15 @@ class GiftFormContainer extends Component {
             handleReasonChange={this.handleReasonChange}
             content={this.state.reason}
           />
-          <CategoryField
-            categories={this.state.categories}
-            handleCategoryChange={this.handleCategoryChange}
-            content={this.state.category}
-          />
+          <label>
+            Category:
+            <div className="cat-category" id="cat-category">
+               <label htmlFor="gift"></label>
+               <select id="cat-category" name="category" onChange={this.handleCategoryChange}>
+               {groups}
+               </select>
+             </div>
+          </label>
           <input type="submit" className="button" value="Submit "/>
         </form>
       </div>
@@ -219,10 +253,3 @@ class GiftFormContainer extends Component {
 }
 
 export default GiftFormContainer;
-
-// <GiftContainer
-//   gifts={this.state.gifts}
-//   person_id={this.props.params.id}
-  // prices={this.state.prices}
-  // reasons={this.state.reasons}
-// />

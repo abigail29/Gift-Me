@@ -49,12 +49,12 @@ class Api::V1::GiftsController < ApplicationController
 
   def create
     if Rails.env.test?
-      gift = Gift.new(gift: params[:gift], person_id: params[:person_id], price: params[:price], reason: params[:reason])
+      gift = Gift.new(gift: params[:gift], person_id: params[:person_id], price: params[:price], reason: params[:reason], category: params[:category])
     else
       gift = Gift.new(gift_params)
     end
 
-    if gift.save
+    if gift.save!
       render json: gift
     else
       render json: gift.errors.full_messages
