@@ -64,5 +64,4 @@ gem 'active_model_serializers'
 gem "simple_calendar", "~> 2.0"
 gem 'etsy', '~> 0.3.1'
 
-gem 'dotenv-rails'
 gem 'httparty'

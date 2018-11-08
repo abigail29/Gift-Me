@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :gifts
     resources :people
+    resources :categories
   end
 
   namespace :api do
@@ -17,6 +18,9 @@ Rails.application.routes.draw do
       resources :users
       resources :people
       resources :gifts
+        resources :categories do
+          get 'search', :on => :member
+      end
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

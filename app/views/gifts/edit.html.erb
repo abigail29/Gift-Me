@@ -1,32 +1,18 @@
-<h1 class="field">Edit a Gift!</h1>
+<h1 class="field giftedit">Edit your Gift!</h1>
   <%= form_for @gift do |f| %>
-    <div class="field">
+    <div class="field editgift">
      <%= f.label :gift, "Edit your gift!", class: 'edit-gift' %>
      <%= f.text_field :gift %>
     </div>
-    <div class="field">
+    <div class="field editgift">
      <%= f.label :price, class: 'edit-gift' %>
      <%= f.text_field :price %>
     </div>
-    <div class="field">
+    <div class="field editgift">
      <%= f.label :reason, class: 'edit-gift' %>
      <%= f.text_field :reason %>
     </div>
-    <!-- <div class="field">
-     <ul class="dropdown menu" data-dropdown-menu>
-       <li><a href="#">Vintage</a></li>
-       <li><a href="#">Art</a></li>
-       <li><a href="#">Clothing</a></li>
-       <li><a href="#">Furniture</a></li>
-       <li><a href="#">Accessories</a></li>
-       <li><a href="#">Toys</a></li>
-       <li><a href="#">Music</a></li>
-       <li><a href="#">Holidays</a></li>
-       <li><a href="#">Jewelry</a></li>
-     </ul>
-    </div> -->
-
-    <div class='action' id="edit">
+    <div class="action submitedit" id="edit">
      <%= f.submit'Edit Gift' %>
     </div>
   <% end %>

@@ -3,7 +3,7 @@ import React from 'react'
 const PriceField = props => {
   return(
     <label>
-      Price (please only put an amount):
+      Price (Please Only Put Numbers In Here!):
       <input
         type="text"
         onChange={props.handlePriceChange}

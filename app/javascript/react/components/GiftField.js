@@ -9,13 +9,15 @@ const GiftField = props => {
   // })
 
   return(
-    <div>
-      <label className= "gifts"> Gift: </label>
+    <div className="gifts">
+      <label>
+      Gift:
       <input
         type="text"
         onChange={props.handleGiftChange}
         value={props.content}
       />
+      </label>
     </div>
   )
 
