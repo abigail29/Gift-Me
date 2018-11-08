@@ -11,7 +11,9 @@ class FormContainer extends Component {
     this.state = {
       name: '',
       birthday: '',
-      description: ''
+      description: '',
+      people: [],
+      person: ''
     }
     this.handleClearForm = this.handleClearForm.bind(this)
     this.handleNameChange = this.handleNameChange.bind(this)
@@ -19,7 +21,6 @@ class FormContainer extends Component {
     this.handleDescriptionChange = this.handleDescriptionChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.addSubmission = this.addSubmission.bind(this)
-
   }
 
     handleClearForm(){
@@ -66,6 +67,7 @@ class FormContainer extends Component {
         .catch(error => console.error('Error:', error));
       }
 
+
     handleSubmit(event){
       event.preventDefault();
       let formPayload = {
@@ -78,6 +80,20 @@ class FormContainer extends Component {
     }
 
     render() {
+
+  //     let wrap = this.state.people.map(person => {
+  //     let deletePersonHandler = () => {
+  //       this.hanldeDeletePerson(person.id)
+  //     }
+  //   return(
+  //     <PersonComponent
+  //     deletePersonHandler={deletePersonHandler}
+  //     />
+  //
+  //   )
+  //
+  // })
+
     return(
       <div>
         <form onSubmit={this.handleSubmit}>

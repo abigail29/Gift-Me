@@ -23,7 +23,11 @@ class Api::V1::PeopleController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
+    @person=Person.find(params[:id])
+    @person.delete
+
+    render json: @person.id
   end
 
   private

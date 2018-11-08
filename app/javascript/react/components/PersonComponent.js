@@ -2,11 +2,17 @@ import React from 'react'
 import { Link } from 'react-router';
 
 const PersonComponent = (props) => {
+
+  let deletePersonButton
+    deletePersonButton = <button onClick={props.deletePersonHandler}>Delete</button>
+
+
   return (
     <div className="columns small-6 first" id="person-tile">
       <p><Link to={`/people/${props.id}`} className="link">Name: {props.name}</Link></p>
       <p className="birth">Birthday: {props.birthday}</p>
       <p className="birth">Description: {props.description}</p>
+      {deletePersonButton}
     </div>
 
   )

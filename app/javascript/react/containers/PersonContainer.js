@@ -10,6 +10,9 @@ class PersonContainer extends Component {
       current_user: {},
       people: []
     }
+
+    this.hanldeDeletePerson = this.hanldeDeletePerson.bind(this)
+
   }
 
   componentDidMount(){
@@ -30,10 +33,43 @@ class PersonContainer extends Component {
         )
       }
 
+
+  hanldeDeletePerson(personId) {
+    event.preventDefault()
+    fetch(`/api/v1/people/${personId}`, {
+      method: 'DELETE',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      credentials: 'same-origin'
+    })
+      .then(response => {
+        if (response.ok) {
+          return response;
+        } else {
+          let errorMessage = `${response.status} (${response.statusText})`,
+              error = new Error(errorMessage);
+          throw(error);
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        let newPeople = this.state.people.filter(person => {
+          return person.id !== personId
+        })
+        this.setState({ people: newPeople})
+      })
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
+  }
+
   render(){
-    console.log(this.state.people)
 
 let person = this.state.people.map(present => {
+
+  let deletePersonHandler = () => {
+        this.hanldeDeletePerson(present.id)
+      }
   return(
       <PersonComponent
       key= {present.id}
@@ -41,6 +77,7 @@ let person = this.state.people.map(present => {
       name= {present.name}
       birthday= {present.birthday}
       description= {present.description}
+      deletePersonHandler={deletePersonHandler}
       />
   )
 })
