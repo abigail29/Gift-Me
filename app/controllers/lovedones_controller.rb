@@ -1,4 +1,0 @@
-class LovedonesController < ApplicationController
-
-
-end 

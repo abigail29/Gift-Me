@@ -10,29 +10,25 @@ class PersonContainer extends Component {
       current_user: {},
       people: []
     }
-
     this.hanldeDeletePerson = this.hanldeDeletePerson.bind(this)
-
   }
 
   componentDidMount(){
-    fetch('/api/v1/current_user')
-        .then(response => {
-          if (response.ok) {
-            return response;
-          } else {
-            let errorMessage = `${response.status} (${response.statusText})`,
-                error = new Error(errorMessage);
-            throw(error);
-          }
-        })
-        .then(response => response.json())
-        .then(body => {
-          this.setState({ current_user: body, people: body.people });
-          }
-        )
+  fetch('/api/v1/current_user')
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+          error = new Error(errorMessage);
+        throw(error);
       }
-
+    })
+    .then(response => response.json())
+    .then(body => {
+      this.setState({ current_user: body, people: body.people });
+    })
+  }
 
   hanldeDeletePerson(personId) {
     event.preventDefault()
@@ -65,12 +61,12 @@ class PersonContainer extends Component {
 
   render(){
 
-let person = this.state.people.map(present => {
+    let person = this.state.people.map(present => {
 
-  let deletePersonHandler = () => {
-        this.hanldeDeletePerson(present.id)
-      }
-  return(
+    let deletePersonHandler = () => {
+      this.hanldeDeletePerson(present.id)
+    }
+    return(
       <PersonComponent
       key= {present.id}
       id= {present.id}
@@ -79,8 +75,8 @@ let person = this.state.people.map(present => {
       description= {present.description}
       deletePersonHandler={deletePersonHandler}
       />
-  )
-})
+    )
+  })
 
     return(
       <div className = "rows">

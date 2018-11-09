@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router';
 import PersonComponent from './PersonComponent'
+import GiftFormContainer from '../containers/GiftFormContainer'
 
 
 class GiftComponent extends Component {
@@ -11,27 +12,14 @@ class GiftComponent extends Component {
     }
   }
 
-  // componentDidMount(){
-  //   fetch(`/api/v1/categories`)
-  //   //https://openapi.etsy.com/v2/taxonomy/categories/?api_key=9xlgrevoja6r6rejly5g4nz0
-  //   .then(response => {
-  //     if (response.ok) {
-  //       return response;
-  //     } else {
-  //       let errorMessage = `${response.status} (${response.statusText})`,
-  //           error = new Error(errorMessage);
-  //       throw(error);
-  //     }
-  //   })
-  //   .then(response => response.json())
-  //   .then(body => {
-  //     this.setState({ category: body });
-  //     }
-  //   )
-  //   .catch(error => console.error('Error:', error));
-  // }
-
   render(){
+
+  // let totalPrice = 0;
+  // this.props.gifts.forEach(g => {
+  //   totalPrice += g.price;
+  // })
+
+
   let editButton
     editButton = <a className="edit" href={`/gifts/${this.props.id}/edit`}>Edit</a>
     // editButton= <button onClick={this.props.handleEdit}>Edit</button>
@@ -39,10 +27,6 @@ class GiftComponent extends Component {
 
   let deleteButton
     deleteButton = <button onClick={this.props.deleteHandler}>Delete</button>
-
-
-
-
 
     return (
     <div className="fifth">
