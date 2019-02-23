@@ -6,7 +6,7 @@ const PersonComponent = (props) => {
   let deletePersonButton
     deletePersonButton = <button onClick={props.deletePersonHandler}>Delete</button>
 
-
+// displayed in tiles on user show page 
   return (
     <div className="columns small-6 first" id="person-tile">
       <p><Link to={`/people/${props.id}`} className="link">Name: {props.name}</Link></p>

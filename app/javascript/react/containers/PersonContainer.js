@@ -3,6 +3,7 @@ import PersonComponent from '../components/PersonComponent';
 import { Route, IndexRoute, Router, browserHistory, Link } from 'react-router';
 import FormContainer from './FormContainer'
 
+//contains all my functions for a person - maps all people - except create is in form container
 class PersonContainer extends Component {
   constructor(props) {
     super(props);
@@ -13,6 +14,7 @@ class PersonContainer extends Component {
     this.hanldeDeletePerson = this.hanldeDeletePerson.bind(this)
   }
 
+//after web page is mounted you want to fetch - once it mounts it fetches and then it rerenders 
   componentDidMount(){
   fetch('/api/v1/current_user')
     .then(response => {

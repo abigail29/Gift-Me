@@ -14,20 +14,14 @@ class GiftComponent extends Component {
 
   render(){
 
-  // let totalPrice = 0;
-  // this.props.gifts.forEach(g => {
-  //   totalPrice += g.price;
-  // })
-
 
   let editButton
     editButton = <a className="edit" href={`/gifts/${this.props.id}/edit`}>Edit</a>
-    // editButton= <button onClick={this.props.handleEdit}>Edit</button>
-    //function to browserHistory.push
 
   let deleteButton
     deleteButton = <button onClick={this.props.deleteHandler}>Delete</button>
 
+//this is the gift form on the person show page - shows all gifts 
     return (
     <div className="fifth">
       <p className = "etsylink">Gift: <a href= {`https://www.etsy.com/market/${this.props.category}`} target="_blank">{this.props.gift}</a></p>

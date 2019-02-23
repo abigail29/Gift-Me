@@ -8,21 +8,10 @@ class EtsyParser
   def initialize
   end
 
-
+# go to httparty to retrieve info from etsy api - the categories
   def self.search(query)
-
-    # response = HTTParty.get("https://openapi.etsy.com/v2/users/etsystore?api_key=9xlgrevoja6r6rejly5g4nz0")
-    # response = HTTParty.get("https://openapi.etsy.com/v2/users/etsystore?api_key=#{ENV["ETSY_KEY"]}&topic=mats")
-    # response = HTTParty.get("https://openapi.etsy.com/v2/users/etsystore?api_key=#{ENV["ETSY_KEY"]}&topic=#{query}")
-    # response = HTTParty.get("https://openapi.etsy.com/v2/users/etsystore?api_key=#{ENV["ETSY_KEY"]}")
-    # response = HTTParty.get("https://openapi.etsy.com/v2/taxonomy/categories/#{query}/?api_key=#{ENV["ETSY_KEY"]}")
     response = HTTParty.get("https://openapi.etsy.com/v2/taxonomy/categories/#{query}?api_key=#{ENV["ETSY_API"]}")
 
-
-    # etsy_data = response["result"][0]
-    # new_hash = {
-    #   link: etsy_data["link"]
-    # }
     result_arr = []
     response["results"].each do |result|
       result_arr << result
