@@ -1,19 +1,13 @@
 class Api::V1::CategoriesController < ApplicationController
 
   def index
-    # need to grab long_name as well
     @categories = EtsyParser.categories
     category_names = []
     @categories["results"].each do |category|
       category_names << category["name"]
     end
-    # category_long = []
-    # @categories["results"].each do |category|
-    #   category_long << category["long_name"]
-    # end
-    render json: category_names
-    # render json: category_long
 
+    render json: category_names
   end
 
   def create

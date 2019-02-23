@@ -180,14 +180,6 @@ class GiftFormContainer extends Component {
     console.log(this.state)
     let groups;
     if (this.state.categories != undefined){
-    // groups = this.state.categories.map(category => {
-    //   return (
-    //     <GiftComponent
-    //       name = {category.name}
-    //     />
-    //
-    //   )
-    // })
     groups = this.state.categories.map(category => {
       return (
         <CategoryField
@@ -215,6 +207,7 @@ class GiftFormContainer extends Component {
     )
   })
 
+//shows all gifts
     return(
       <div>
         <div className = "wrappers">

@@ -41,6 +41,7 @@ class FormContainer extends Component {
       this.setState({ description: event.target.value })
     }
 
+//fetch post for create person - api/v1 controller
     addSubmission(formPayload) {
         fetch('/api/v1/people', {
           credentials: 'same-origin',
@@ -81,18 +82,6 @@ class FormContainer extends Component {
 
     render() {
 
-  //     let wrap = this.state.people.map(person => {
-  //     let deletePersonHandler = () => {
-  //       this.hanldeDeletePerson(person.id)
-  //     }
-  //   return(
-  //     <PersonComponent
-  //     deletePersonHandler={deletePersonHandler}
-  //     />
-  //
-  //   )
-  //
-  // })
 
     return(
       <div>
